@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Square Fire Pit — Vertex Steel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+.back{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:20px}
+.back:hover{color:var(--ember-hot)}
+.prod-from{font-family:var(--font-mono);font-size:14px;color:var(--steel-dim);letter-spacing:.04em;margin:22px 0 4px}
+.prod-from b{font-family:var(--font-display);font-size:26px;color:var(--gold);letter-spacing:.02em;margin:0 4px}
+.feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;margin:22px 0 30px}
+.feat li{font-size:14.5px;color:var(--steel);display:flex;gap:9px;align-items:flex-start}
+.feat li::before{content:"";width:7px;height:7px;margin-top:7px;flex:none;background:var(--ember);transform:rotate(45deg)}
+.order-grid{display:grid;grid-template-columns:1fr .82fr;gap:30px;align-items:start}
+.order-config{display:flex;flex-direction:column;gap:24px}
+.summary{position:sticky;top:96px;border:1px solid var(--line-2);border-radius:4px;background:var(--smoke);overflow:hidden}
+.summary-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.summary-head .pl{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-dim)}
+.sum-name{font-family:var(--font-display);font-size:22px;margin-top:5px;line-height:1}
+.sum-lead{font-family:var(--font-mono);font-size:11px;color:var(--ember-hot);text-align:right;letter-spacing:.04em;flex:none}
+.summary-list{padding:16px 24px}
+.summary-row{display:flex;justify-content:space-between;gap:14px;font-size:14px;padding:5px 0;color:var(--steel)}
+.summary-row b{color:var(--ash);font-weight:600;text-align:right}
+.summary-total{padding:18px 24px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.summary-total .pl{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim)}
+.summary-total .pv{font-family:var(--font-display);font-size:32px;color:var(--gold)}
+.form{padding:20px 24px 24px}
+.form-err{display:none;background:rgba(224,87,79,.12);border:1px solid rgba(224,87,79,.5);color:#f0a49f;font-size:13px;padding:9px 12px;border-radius:2px;margin-bottom:6px}
+.form label{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim);margin:14px 0 6px}
+.form input,.form textarea{width:100%;background:var(--panel);border:1px solid var(--line-2);border-radius:2px;color:var(--ash);font-family:var(--font-body);font-size:15px;padding:11px 12px;transition:.15s;resize:vertical}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,113,47,.16)}
+.form .err{border-color:#e0574f}
+.place{width:100%;justify-content:center;margin-top:20px;padding:14px}
+.form-note{font-family:var(--font-mono);font-size:10.5px;color:var(--steel-dim);letter-spacing:.03em;margin-top:12px;text-align:center;line-height:1.5}
+.confirm{padding:44px 26px;text-align:center}
+.confirm svg{width:50px;height:50px;stroke:var(--ember-hot);fill:none;margin-bottom:14px}
+.confirm h3{font-family:var(--font-body);font-weight:700;text-transform:none;letter-spacing:0;font-size:21px;margin-bottom:10px}
+.confirm p{color:var(--steel);font-size:14.5px}
+.confirm a{color:var(--ember-hot)}
+.trust{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:center;padding:30px 0 0;margin-top:40px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--steel-dim)}
+.trust b{color:var(--ember);margin-right:6px}
+@media(max-width:900px){.order-grid{grid-template-columns:1fr}.summary{position:static}.feat{grid-template-columns:1fr}}
+</style>
+</head><body>
+<header><div class="wrap nav">
+  <a href="index.html" class="brand" aria-label="Vertex Steel home"><svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 L37 34 L28 34 L20 19 L12 34 L3 34 Z" fill="url(#vg)"/><path d="M20 19 L24.5 27 L20 34 L15.5 27 Z" fill="#201C18"/><defs><linearGradient id="vg" x1="20" y1="3" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F"/></linearGradient></defs></svg><span class="brand-txt"><span class="brand-name">VERTEX</span><span class="brand-sub">STEEL&nbsp;·&nbsp;FIRE&nbsp;WORKS</span></span></a>
+  <nav class="navlinks" id="navlinks"><a href="index.html#builds">Builds</a><a href="custom-design.html">Custom / DXF</a><a href="index.html#process">Process</a><a href="index.html#contact">Contact</a></nav>
+  <div class="nav-cta"><a href="#order" class="btn">Order now</a><button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</div></header>
+<div class="firebar" aria-hidden="true"></div>
+<section class="hero" id="top">
+  <div class="hero-glow"></div>
+  <canvas id="embers"></canvas>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <a href="index.html" class="back">← All builds</a>
+      <span class="eyebrow">/ Fire Pit</span>
+      <h1>Modern Square Fire Pit</h1>
+      <p class="hero-sub">Our clean-lined square pit with an optional grill grate — the everyday favourite, cut from flat plate.</p>
+      <div class="prod-from">From <b>R 2 900</b> incl. VAT</div>
+      <ul class="feat"><li>Sheet-cut &amp; welded solid</li><li>Mild or 304 stainless</li><li>1.2 / 2 / 3 mm plate</li><li>Wood &amp; charcoal — never gas</li><li>Made to order in South Africa</li><li>2–4 week build, couriered</li></ul>
+      <div class="hero-cta"><a href="#order" class="btn">Configure &amp; order ↓</a><a href="index.html#builds" class="btn btn-ghost">Other builds</a></div>
+    </div>
+    <div class="hero-art"><img src="https://i.ibb.co/ym5wQ8MK/r-modern-square-fire-pit-v3-2.webp" alt="Modern Square Fire Pit by Vertex Steel" loading="eager"></div>
+  </div>
+</section>
+
+<section class="section" id="order">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><span class="eyebrow">/ Build &amp; order</span><h2 style="margin-top:14px">Make it yours</h2></div>
+      <p>Set your steel, plate thickness, and size, add any extras, then send your order. All prices in Rand, incl. VAT — no payment until we confirm.</p></div>
+    <div class="order-grid reveal">
+      <div class="order-config">
+  <div class="field">
+    <div class="flabel"><span>01 · Steel &amp; finish</span><span class="fval" id="lblFin">Mild Steel</span></div>
+    <div class="opts" id="finOpts"><div class="opt sel" data-fin="mild">Mild Steel<small>Standard</small></div><div class="opt" data-fin="stain">Stainless<small>+ R1 800</small></div></div>
+  </div>
+  <div class="field">
+    <div class="flabel"><span>02 · Plate thickness</span><span class="fval" id="lblThick">2.0 mm</span></div>
+    <div class="opts" id="thickOpts"><div class="opt" data-thick="t12">1.2<small>mm</small></div><div class="opt sel" data-thick="t2">2.0<small>+ R320</small></div><div class="opt" data-thick="t3">3.0<small>+ R680</small></div></div>
+  </div>
+  <div class="field">
+    <div class="flabel"><span>03 · Size (width)</span><span class="fval" id="lblSize">750 mm</span></div>
+    <div class="opts" id="sizeOpts"><div class="opt" data-size="s">600<small>mm</small></div><div class="opt sel" data-size="m">750<small>+ R650</small></div><div class="opt" data-size="l">900<small>+ R1 350</small></div></div>
+  </div>
+  <div class="field">
+    <div class="flabel"><span>04 · Add-ons</span><span class="fval" id="lblAdd">0 selected</span></div>
+    <div class="opts addon" id="addOpts"></div>
+  </div>
+  <div class="specsheet">
+    <div class="spec"><div class="sk">Material</div><div class="sv" id="spMat">2 mm mild steel</div></div>
+    <div class="spec"><div class="sk">Dimensions</div><div class="sv" id="spDim">—</div></div>
+    <div class="spec"><div class="sk">Weight (est.)</div><div class="sv" id="spWt">—</div></div>
+    <div class="spec"><div class="sk">Finish</div><div class="sv" id="spFin">—</div></div>
+  </div></div>
+      <div class="order-side">
+        <div class="summary">
+          <div class="summary-head"><div><div class="pl">Your order</div><div class="sum-name">Modern Square Fire Pit</div></div><div class="sum-lead" id="sumLead">2–3 wk build</div></div>
+          <div class="summary-list" id="sumList"></div>
+          <div class="summary-total" id="sumTotal"></div>
+          <div class="form" id="formWrap">
+            <div class="form-err" id="formErr">Please fill in the highlighted fields.</div>
+            <label for="name">Full name</label><input id="name" type="text" autocomplete="name">
+            <label for="email">Email</label><input id="email" type="email" autocomplete="email">
+            <label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" autocomplete="tel">
+            <label for="town">Delivery town / suburb</label><input id="town" type="text">
+            <label for="notes">Notes (optional)</label><textarea id="notes" rows="2"></textarea>
+            <button class="btn place" id="placeBtn">Place order request →</button>
+            <p class="form-note">No payment now — we confirm stock, final price &amp; lead time within 2 business days.</p>
+          </div>
+          <div class="confirm" id="confirm" style="display:none">
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <h3>Order ready, <span id="confName">there</span>!</h3>
+            <p>We've opened your email app to send the request. If it didn't open, mail us at <a href="mailto:shop@vertexsteel.co.za">shop@vertexsteel.co.za</a> — we'll confirm within 2 business days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trust reveal"><span><b>✓</b>Wood &amp; charcoal</span><span><b>✓</b>Welded solid</span><span><b>✓</b>2–4 week build</span><span><b>✓</b>Couriered nationwide</span></div>
+  </div>
+</section>
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand"><div class="brand"><svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 L37 34 L28 34 L20 19 L12 34 L3 34 Z" fill="url(#vg2)"/><path d="M20 19 L24.5 27 L20 34 L15.5 27 Z" fill="#201C18"/><defs><linearGradient id="vg2" x1="20" y1="3" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F"/></linearGradient></defs></svg><span class="brand-txt"><span class="brand-name">VERTEX</span><span class="brand-sub">STEEL&nbsp;·&nbsp;FIRE&nbsp;WORKS</span></span></div>
+      <p>Sheet-cut steel fire pits, chimeneas, grills, and griddles — cut, formed, and welded in the shop. Wood and charcoal fired. Built to order, couriered nationwide.</p></div>
+    <div class="foot-cols">
+      <div class="fcol"><h4>Builds</h4><a href="round-table-fire-pit.html">Round Table Fire Pit</a><a href="twin-pyramid.html">Twin Pyramid</a><a href="pyramid-chimenea.html">Pyramid Chimenea</a><a href="a-frame-pyramid.html">A-Frame Pyramid</a><a href="index.html#builds">All builds</a></div>
+      <div class="fcol"><h4>Shop</h4><a href="custom-design.html">Custom / DXF</a><a href="index.html#process">Process</a><a href="index.html#contact">Lead times</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="mailto:shop@vertexsteel.co.za">shop@vertexsteel.co.za</a><a href="tel:+27825550137">+27 82 555 0137</a><a href="#">Instagram</a></div>
+    </div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Vertex Steel Fire Works</span><span>Sheet-cut · Welded · Made to order</span></div>
+</div></footer>
+<script>window.PDATA={"name":"Modern Square Fire Pit","base":2900,"area":1.5,"hw":0};window.PADDONS=["grate","cover","screen","ash"];
+/* ---- ambient embers ---- */
+(function(){
+  var c=document.getElementById('embers');if(!c)return;var x=c.getContext('2d'),W,H,parts=[];
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+  function mk(){return{x:Math.random()*W,y:H+Math.random()*40,r:Math.random()*1.8+.5,vy:Math.random()*.5+.25,vx:(Math.random()-.5)*.3,life:Math.random(),hue:Math.random()*30+18};}
+  function init(){size();parts=[];var n=Math.min(80,Math.floor(W/15));for(var i=0;i<n;i++){parts.push(mk());parts[i].y=Math.random()*H;}}
+  function draw(){x.clearRect(0,0,W,H);for(var i=0;i<parts.length;i++){var p=parts[i];p.y-=p.vy;p.x+=p.vx+Math.sin(p.y/40)*.2;p.life+=.01;var a=Math.max(0,.72*(1-(H-p.y)/H))*(0.6+0.4*Math.sin(p.life*3));x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='hsla('+p.hue+',95%,'+(58+p.r*6)+'%,'+a+')';x.fill();if(p.y< -10){parts[i]=mk();}}requestAnimationFrame(draw);}
+  if(!reduce){init();draw();window.addEventListener('resize',init);}
+})();
+
+/* ---- data ---- */
+var FIN={
+  mild:{name:'Mild Steel',add:0,matBase:'mild steel',fin:'Brushed / oil-sealed'},
+  stain:{name:'Stainless Steel',add:1800,matBase:'304 stainless',fin:'Brushed #4 bright'}
+};
+var THICK={t12:{mm:1.2,add:0,label:'1.2'},t2:{mm:2,add:320,label:'2.0'},t3:{mm:3,add:680,label:'3.0'}};
+var SIZE={s:{mm:600,add:0,idx:0,am:0.72},m:{mm:750,add:650,idx:1,am:1.0},l:{mm:900,add:1350,idx:2,am:1.32}};
+var ADDCAT={
+  grate:{n:'Swing grill grate',p:750},cover:{n:'Fitted cover',p:380},screen:{n:'Spark screen',p:520},ash:{n:'Ash tray',p:340},
+  xgrate:{n:'Extra grate',p:650},rotis:{n:'Rotisserie kit',p:1450},scraper:{n:'Scraper set',p:180},splash:{n:'Splash guard',p:520}
+};
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0');}
+function money(n){return 'R\u00A0'+fmt(n);}
+
+var PDATA=window.PDATA,PADDONS=window.PADDONS||[];
+var qs=new URLSearchParams(location.search);
+var state={fin:'mild',thick:'t2',size:'m',add:{}};
+PADDONS.forEach(function(k){state.add[k]=false;});
+if(FIN[qs.get('fin')])state.fin=qs.get('fin');
+if(THICK[qs.get('thick')])state.thick=qs.get('thick');
+if(SIZE[qs.get('size')])state.size=qs.get('size');
+
+document.getElementById('addOpts').innerHTML=PADDONS.map(function(k){
+  return '<div class="opt chip" data-add="'+k+'">'+ADDCAT[k].n+'<span class="plus">+'+fmt(ADDCAT[k].p)+'</span></div>';
+}).join('');
+function markSel(id,key){var els=document.querySelectorAll('#'+id+' .opt');for(var i=0;i<els.length;i++){els[i].classList.toggle('sel',els[i].dataset[key]===state[key]);}}
+markSel('finOpts','fin');markSel('thickOpts','thick');markSel('sizeOpts','size');
+function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+
+function render(){
+  var f=FIN[state.fin],s=SIZE[state.size],th=THICK[state.thick];
+  var price=PDATA.base+f.add+th.add+s.add,lines=[];
+  PADDONS.forEach(function(k){if(state.add[k]){price+=ADDCAT[k].p;lines.push([ADDCAT[k].n,ADDCAT[k].p]);}});
+  var wk=(state.fin==='stain'?3:2);
+  var wt=Math.round(PDATA.area*s.am*th.mm*7.85+PDATA.hw);
+  var dimTxt=s.mm+' mm (width)';
+  set('lblFin',f.name);set('lblThick',th.label+' mm');set('lblSize',s.mm+' mm');set('lblAdd',lines.length+' selected');
+  set('spMat',th.label+' mm '+f.matBase);set('spDim',dimTxt);set('spWt','~'+wt+' kg');set('spFin',f.fin);
+  var rows='<div class="summary-row"><span>Design</span><b>'+PDATA.name+'</b></div>'+
+    '<div class="summary-row"><span>Steel</span><b>'+f.name+'</b></div>'+
+    '<div class="summary-row"><span>Thickness</span><b>'+th.label+' mm</b></div>'+
+    '<div class="summary-row"><span>Size</span><b>'+s.mm+' mm</b></div>';
+  lines.forEach(function(l){rows+='<div class="summary-row"><span>'+l[0]+'</span><b>+'+money(l[1])+'</b></div>';});
+  document.getElementById('sumList').innerHTML=rows;
+  document.getElementById('sumTotal').innerHTML='<span class="pl">Total incl. VAT</span><span class="pv">'+money(price)+'</span>';
+  set('sumLead',wk+'\u2013'+(wk+1)+' wk build');
+  window.__order={price:price,wt:wt,dim:dimTxt,f:f,th:th,s:s,lines:lines,wk:wk};
+}
+
+function wireSingle(id,key){document.getElementById(id).addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;var els=this.querySelectorAll('.opt');for(var i=0;i<els.length;i++)els[i].classList.remove('sel');o.classList.add('sel');state[key]=o.dataset[key];render();});}
+wireSingle('finOpts','fin');wireSingle('thickOpts','thick');wireSingle('sizeOpts','size');
+document.getElementById('addOpts').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;var k=o.dataset.add;state.add[k]=!state.add[k];o.classList.toggle('sel',state.add[k]);render();});
+
+function val(id){return (document.getElementById(id).value||'').trim();}
+document.getElementById('placeBtn').addEventListener('click',function(){
+  var fields=['name','email','phone','town'],okAll=true;
+  fields.forEach(function(id){var el=document.getElementById(id),v=(el.value||'').trim(),bad=!v||(id==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));el.classList.toggle('err',bad);if(bad)okAll=false;});
+  var errBox=document.getElementById('formErr');
+  if(!okAll){errBox.style.display='block';return;}
+  errBox.style.display='none';
+  var o=window.__order;
+  var addStr=o.lines.length?o.lines.map(function(l){return l[0]+' ('+money(l[1])+')';}).join(', '):'none';
+  var subj='ORDER: '+PDATA.name+' \u2014 '+o.f.name+' '+o.th.label+'mm, '+o.s.mm+'mm';
+  var body='NEW ORDER REQUEST\n\n'+
+    'PRODUCT:    '+PDATA.name+'\n'+
+    'STEEL:      '+o.f.name+'\n'+
+    'THICKNESS:  '+o.th.label+' mm\n'+
+    'SIZE:       '+o.s.mm+' mm (width)\n'+
+    'ADD-ONS:    '+addStr+'\n'+
+    'WEIGHT:     ~'+o.wt+' kg\n'+
+    'FUEL:       wood & charcoal (no gas)\n'+
+    'PRICE:      '+money(o.price)+' incl. VAT\n'+
+    'LEAD TIME:  '+o.wk+'\u2013'+(o.wk+1)+' weeks\n\n'+
+    'CUSTOMER\n'+
+    '  Name:  '+val('name')+'\n'+
+    '  Email: '+val('email')+'\n'+
+    '  Phone: '+val('phone')+'\n'+
+    '  Delivery town/suburb: '+val('town')+'\n'+
+    '  Notes: '+(val('notes')||'-')+'\n';
+  var href='mailto:shop@vertexsteel.co.za?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  document.getElementById('confName').textContent=(val('name').split(' ')[0]||'there');
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('confirm').style.display='block';
+  window.location.href=href;
+});
+
+document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navlinks').classList.toggle('open');});
+document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});});
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
+
+render();
+</script>
+
+</body></html>

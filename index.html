@@ -3,268 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vertex Steel — Sheet-Cut Fire Pits, Grills & Griddles</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Vertex Steel — Sheet-Cut Fire Pits, Chimeneas, Grills &amp; Griddles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --forge:#201C18;
-    --smoke:#2A2621;
-    --panel:#332E27;
-    --panel-2:#3B352D;
-    --ash:#FCF8F1;        /* primary text — near white */
-    --steel:#EAE1D3;      /* secondary text — light warm, reads bright */
-    --steel-dim:#CDBEA6;  /* small labels — warm sand */
-    --ember:#E7712F;      /* orange accent */
-    --ember-hot:#FBA04B;  /* bright orange */
-    --gold:#F4BC53;       /* yellow-gold for prices / metric labels */
-    --corten:#B0673B;
-    --line:rgba(252,248,241,0.14);
-    --line-2:rgba(252,248,241,0.24);
-    --font-display:'Anton',Impact,'Arial Narrow Bold',sans-serif;
-    --font-body:'Barlow',system-ui,-apple-system,sans-serif;
-    --font-mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--forge);color:var(--ash);font-family:var(--font-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  ::selection{background:var(--ember);color:#140f0c}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
-  .mono{font-family:var(--font-mono)}
-  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-weight:500}
-  .eyebrow .dim{color:var(--steel-dim)}
-  h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.01em}
-
-  /* header */
-  header{position:sticky;top:0;z-index:60;background:rgba(32,28,24,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .mark{width:30px;height:30px;flex:none}
-  .brand-txt{display:flex;flex-direction:column;line-height:1}
-  .brand-name{font-family:var(--font-display);font-size:21px;letter-spacing:.06em}
-  .brand-sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.42em;color:var(--steel-dim);margin-top:3px}
-  .navlinks{display:flex;gap:30px;align-items:center}
-  .navlinks a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);transition:color .2s}
-  .navlinks a:hover{color:var(--ember-hot)}
-  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:11px 20px;border:1px solid var(--ember);color:var(--ash);background:linear-gradient(180deg,rgba(231,113,47,.20),rgba(231,113,47,.05));cursor:pointer;transition:.2s;border-radius:2px}
-  .btn:hover{background:var(--ember);color:#140f0c;box-shadow:0 0 30px -6px rgba(231,113,47,.6)}
-  .btn-ghost{border-color:var(--line-2);background:none;color:var(--ash)}
-  .btn-ghost:hover{border-color:var(--ash);background:rgba(252,248,241,.06);box-shadow:none}
-  .nav-cta{display:flex;align-items:center;gap:18px}
-  .menu-btn{display:none;background:none;border:1px solid var(--line-2);border-radius:2px;padding:8px 10px;cursor:pointer}
-  .menu-btn span{display:block;width:20px;height:2px;background:var(--ash);margin:4px 0}
-
-  /* hero */
-  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-  #embers{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.92}
-  .hero,.section,.final,footer{position:relative;z-index:1}
-  .hero-glow{position:absolute;left:50%;bottom:-30%;transform:translateX(-50%);width:900px;height:700px;z-index:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(251,160,75,.30),rgba(231,113,47,.11) 38%,transparent 66%);filter:blur(6px);animation:breathe 6s ease-in-out infinite}
-  @keyframes breathe{0%,100%{opacity:.82;filter:blur(6px) brightness(1)}50%{opacity:1;filter:blur(8px) brightness(1.2)}}
-  /* backlit molten bar under the header */
-  .firebar{position:sticky;top:70px;z-index:55;height:3px;width:100%;pointer-events:none;
-    background:linear-gradient(90deg,#5a1e0c,#E7712F,#FBA04B,#F4BC53,#FBA04B,#E7712F,#5a1e0c);
-    background-size:220% 100%;
-    animation:fireflow 7s linear infinite,fireflick 1.3s ease-in-out infinite;
-    box-shadow:0 0 16px 1px rgba(251,160,75,.55),0 2px 34px 4px rgba(231,113,47,.4)}
-  @keyframes fireflow{0%{background-position:0 0}100%{background-position:220% 0}}
-  @keyframes fireflick{0%,100%{opacity:.82;filter:brightness(1)}45%{opacity:1;filter:brightness(1.3)}70%{opacity:.9;filter:brightness(1.1)}}
-  @media(max-width:680px){.firebar{top:70px}}
-  .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:78px 0 74px}
-  .hero h1{font-size:clamp(50px,8vw,100px);letter-spacing:.005em}
-  .hero h1 .hot{color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(180deg,var(--ember-hot),var(--ember) 60%,var(--corten))}
-  .hero-sub{max-width:450px;margin:26px 0 32px;color:var(--steel);font-size:18px}
-  .hero-sub b{color:var(--ash);font-weight:600}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-stats{display:flex;gap:34px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
-  .stat .n{font-family:var(--font-display);font-size:30px;color:var(--gold);line-height:1}
-  .stat .l{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-dim);margin-top:7px}
-  .hero-art{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:360px}
-  .hero-art svg{width:100%;max-width:430px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
-  .stamp{position:absolute;top:6px;right:0;width:112px;height:112px;border:1px solid var(--line-2);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--font-mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--steel-dim);transform:rotate(-8deg);background:rgba(32,28,24,.45)}
-  .stamp b{color:var(--ember-hot);display:block;font-size:11px;letter-spacing:.2em;margin:3px 0}
-
-  @keyframes flick{0%,100%{transform:scaleY(1) translateY(0);opacity:.95}50%{transform:scaleY(1.12) translateY(-3px);opacity:1}}
-  @keyframes flick2{0%,100%{transform:scaleY(1.05) translateX(1px);opacity:.85}50%{transform:scaleY(.9) translateX(-1px);opacity:1}}
-  .flame-a{transform-origin:bottom center;animation:flick 1.7s ease-in-out infinite}
-  .flame-b{transform-origin:bottom center;animation:flick2 1.3s ease-in-out infinite}
-  .flame-c{transform-origin:bottom center;animation:flick 2.1s ease-in-out infinite .3s}
-
-  /* sections */
-  .section{padding:96px 0;border-bottom:1px solid var(--line);position:relative}
-  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:52px;flex-wrap:wrap}
-  .sec-head h2{font-size:clamp(34px,5vw,58px)}
-  .sec-head p{max-width:440px;color:var(--steel);font-size:16px}
-
-  /* builder */
-  .builder{display:grid;grid-template-columns:.92fr 1.08fr;gap:0;border:1px solid var(--line-2);border-radius:3px;overflow:hidden;background:var(--smoke)}
-  .b-preview{position:relative;padding:38px 34px;background:radial-gradient(ellipse at 50% 78%,rgba(251,160,75,.22),transparent 60%),linear-gradient(180deg,#282219,#2f2921);border-right:1px solid var(--line-2);display:flex;flex-direction:column}
-  .b-preview-stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:300px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-  .b-preview-stage svg{width:100%;max-width:330px}
-  .b-tag{position:absolute;top:22px;left:26px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel)}
-  .b-tag b{color:var(--ember-hot)}
-  .b-preview-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line);padding-top:18px;margin-top:14px}
-  .b-price .pl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-dim)}
-  .b-price .pv{font-family:var(--font-display);font-size:40px;line-height:1;color:var(--gold);margin-top:4px}
-  .b-price .pv small{font-size:20px;color:var(--gold);margin-right:2px}
-  .b-lead{text-align:right;font-family:var(--font-mono);font-size:11px;color:var(--steel);letter-spacing:.08em}
-  .b-lead b{color:var(--ember-hot);display:block;font-size:14px}
-  .b-config{padding:34px 34px 30px;display:flex;flex-direction:column;gap:24px}
-  .field .flabel{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-dim)}
-  .flabel .fval{color:var(--ember-hot)}
-  .opts{display:flex;gap:9px;flex-wrap:wrap}
-  .opt{flex:1;min-width:0;text-align:center;cursor:pointer;padding:12px 8px;border:1px solid var(--line-2);border-radius:2px;background:var(--panel);font-size:14px;font-weight:600;color:var(--steel);transition:.16s;position:relative;white-space:nowrap}
-  .opt small{display:block;font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--steel-dim);margin-top:3px;letter-spacing:.04em}
-  .opt:hover{color:var(--ash);background:var(--panel-2)}
-  .opt.sel{border-color:var(--ember);color:var(--ash);background:linear-gradient(180deg,rgba(231,113,47,.18),rgba(231,113,47,.04))}
-  .opt.sel small{color:var(--gold)}
-  #baseOpts .opt{flex:1 1 46%}
-  .opts.addon .opt{flex:1 1 46%}
-  .opt.chip{text-align:left;padding:12px 12px}
-  .opt.chip .plus{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-family:var(--font-mono);font-size:11px;color:var(--steel-dim)}
-  .opt.chip.sel .plus{color:var(--gold)}
-  .b-actions{display:flex;gap:12px;align-items:center;margin-top:2px}
-  .b-actions .btn{flex:1;justify-content:center}
-  .b-reset{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim);background:none;border:none;cursor:pointer}
-  .b-reset:hover{color:var(--ash)}
-  .specsheet{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
-  .spec{padding:18px 20px;border-right:1px solid var(--line);background:var(--smoke)}
-  .spec:last-child{border-right:none}
-  .spec .sk{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ember)}
-  .spec .sv{font-family:var(--font-mono);font-size:15px;color:var(--ash);margin-top:8px;font-weight:500}
-
-  /* lineup */
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{border:1px solid var(--line-2);border-radius:3px;background:var(--smoke);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
-  .card:hover{border-color:rgba(231,113,47,.5);transform:translateY(-4px)}
-  .card-art{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(ellipse at 50% 80%,rgba(251,160,75,.16),transparent 62%),linear-gradient(180deg,#282219,#2f2921);border-bottom:1px solid var(--line)}
-  .card-art svg{width:100%;max-width:200px}
-  .card-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px}
-  .card-body .cn{font-family:var(--font-display);font-size:24px}
-  .card-body .cd{color:var(--steel);font-size:14.5px;flex:1}
-  .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:14px;border-top:1px solid var(--line)}
-  .card-foot .from{font-family:var(--font-mono);font-size:11px;color:var(--ember);letter-spacing:.1em;text-transform:uppercase}
-  .card-foot .fp{font-family:var(--font-mono);font-size:18px;color:var(--gold);font-weight:500}
-
-  /* process */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
-  .step{padding:30px 26px 34px;border-right:1px solid var(--line);position:relative}
-  .step:last-child{border-right:none}
-  .step .snum{font-family:var(--font-display);font-size:40px;color:transparent;-webkit-text-stroke:1px var(--steel-dim);line-height:1}
-  .step.hot .snum{-webkit-text-stroke:1px var(--ember);color:transparent}
-  .step h3{font-family:var(--font-body);font-weight:700;text-transform:none;letter-spacing:0;font-size:19px;margin:16px 0 9px}
-  .step p{color:var(--steel);font-size:14.5px}
-
-  /* materials */
-  .mats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .mat{border:1px solid var(--line-2);border-radius:3px;overflow:hidden;background:var(--smoke)}
-  .mat-swatch{height:90px}
-  .mat-body{padding:20px 22px 24px}
-  .mat-body .mn{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ember);margin-bottom:9px}
-  .mat-body h3{font-family:var(--font-body);text-transform:none;letter-spacing:0;font-weight:700;font-size:20px;margin-bottom:9px}
-  .mat-body p{color:var(--steel);font-size:14.5px}
-
-  /* quotes */
-  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .quote{border:1px solid var(--line-2);border-radius:3px;padding:32px 30px;background:var(--smoke)}
-  .quote p{font-size:19px;line-height:1.5;margin-bottom:20px;color:var(--ash)}
-  .quote p::before{content:"\201C";color:var(--ember);font-family:var(--font-display);font-size:26px;margin-right:2px}
-  .quote .who{display:flex;align-items:center;gap:12px}
-  .quote .dot{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--corten));flex:none}
-  .quote .who b{display:block;font-size:14px}
-  .quote .who span{font-family:var(--font-mono);font-size:11px;color:var(--steel-dim);letter-spacing:.08em}
-
-  /* final */
-  .final{position:relative;text-align:center;padding:110px 0;overflow:hidden;border-bottom:1px solid var(--line)}
-  .final .hero-glow{bottom:-40%}
-  .final h2{font-size:clamp(40px,6.5vw,86px);position:relative;z-index:2}
-  .final p{position:relative;z-index:2;color:var(--steel);max-width:470px;margin:22px auto 34px;font-size:18px}
-  .final .hero-cta{position:relative;z-index:2;justify-content:center}
-
-  /* footer */
-  footer{padding:56px 0 40px}
-  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid var(--line)}
-  .foot-brand{max-width:320px}
-  .foot-brand .brand{margin-bottom:16px}
-  .foot-brand p{color:var(--steel-dim);font-size:14px}
-  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
-  .fcol h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin-bottom:16px;font-weight:500}
-  .fcol a{display:block;color:var(--steel);font-size:14px;margin-bottom:10px;transition:.2s}
-  .fcol a:hover{color:var(--ember-hot)}
-  .foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--steel-dim)}
-
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-
-  /* ---- fire effects ---- */
-  @keyframes glowPulse{0%,100%{opacity:.82;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.06)}}
-  @keyframes glowFlick{0%,100%{opacity:.92}20%{opacity:.72}45%{opacity:1}65%{opacity:.8}82%{opacity:.96}}
-  .hero-glow{animation:glowPulse 5s ease-in-out infinite}
-  .hero-fire{position:absolute;left:0;right:0;bottom:0;height:150px;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(231,113,47,.10) 50%,rgba(251,160,75,.24));mix-blend-mode:screen;animation:glowFlick 3.2s ease-in-out infinite}
-  .hero-fire::before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent 5%,var(--ember-hot),var(--ember),var(--ember-hot),transparent 95%);filter:blur(2px);opacity:.85;animation:glowFlick 2.1s ease-in-out infinite}
-  .final .hero-glow{animation:glowPulse 6s ease-in-out infinite}
-
-  @media(max-width:940px){
-    .hero-inner{grid-template-columns:1fr;gap:10px;padding:56px 0 60px}
-    .hero-art{order:-1;min-height:280px}
-    .stamp{top:-6px}
-    .builder{grid-template-columns:1fr}
-    .b-preview{border-right:none;border-bottom:1px solid var(--line-2)}
-    .grid3,.mats{grid-template-columns:1fr}
-    .steps{grid-template-columns:1fr 1fr}
-    .quotes{grid-template-columns:1fr}
-    .specsheet{grid-template-columns:1fr 1fr}
-  }
-  @media(max-width:680px){
-    .navlinks{display:none}
-    .nav-cta .btn{display:none}
-    .menu-btn{display:block}
-    .navlinks.open{display:flex;flex-direction:column;gap:0;position:absolute;top:70px;left:0;right:0;background:var(--smoke);border-bottom:1px solid var(--line-2);padding:8px 0}
-    .navlinks.open a{padding:14px 28px;border-bottom:1px solid var(--line)}
-    .wrap{padding:0 20px}
-    .section{padding:70px 0}
-    .steps{grid-template-columns:1fr}
-    .specsheet{grid-template-columns:1fr 1fr}
-    .hero-stats{gap:22px}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .flame-a,.flame-b,.flame-c{animation:none}
-    .firebar,.hero-glow{animation:none}
-    html{scroll-behavior:auto}
-    .reveal{transition:none}
-  }
+.back{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:20px}
+.back:hover{color:var(--ember-hot)}
+.prod-from{font-family:var(--font-mono);font-size:14px;color:var(--steel-dim);letter-spacing:.04em;margin:22px 0 4px}
+.prod-from b{font-family:var(--font-display);font-size:26px;color:var(--gold);letter-spacing:.02em;margin:0 4px}
+.feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;margin:22px 0 30px}
+.feat li{font-size:14.5px;color:var(--steel);display:flex;gap:9px;align-items:flex-start}
+.feat li::before{content:"";width:7px;height:7px;margin-top:7px;flex:none;background:var(--ember);transform:rotate(45deg)}
+.order-grid{display:grid;grid-template-columns:1fr .82fr;gap:30px;align-items:start}
+.order-config{display:flex;flex-direction:column;gap:24px}
+.summary{position:sticky;top:96px;border:1px solid var(--line-2);border-radius:4px;background:var(--smoke);overflow:hidden}
+.summary-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.summary-head .pl{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-dim)}
+.sum-name{font-family:var(--font-display);font-size:22px;margin-top:5px;line-height:1}
+.sum-lead{font-family:var(--font-mono);font-size:11px;color:var(--ember-hot);text-align:right;letter-spacing:.04em;flex:none}
+.summary-list{padding:16px 24px}
+.summary-row{display:flex;justify-content:space-between;gap:14px;font-size:14px;padding:5px 0;color:var(--steel)}
+.summary-row b{color:var(--ash);font-weight:600;text-align:right}
+.summary-total{padding:18px 24px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.summary-total .pl{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim)}
+.summary-total .pv{font-family:var(--font-display);font-size:32px;color:var(--gold)}
+.form{padding:20px 24px 24px}
+.form-err{display:none;background:rgba(224,87,79,.12);border:1px solid rgba(224,87,79,.5);color:#f0a49f;font-size:13px;padding:9px 12px;border-radius:2px;margin-bottom:6px}
+.form label{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim);margin:14px 0 6px}
+.form input,.form textarea{width:100%;background:var(--panel);border:1px solid var(--line-2);border-radius:2px;color:var(--ash);font-family:var(--font-body);font-size:15px;padding:11px 12px;transition:.15s;resize:vertical}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,113,47,.16)}
+.form .err{border-color:#e0574f}
+.place{width:100%;justify-content:center;margin-top:20px;padding:14px}
+.form-note{font-family:var(--font-mono);font-size:10.5px;color:var(--steel-dim);letter-spacing:.03em;margin-top:12px;text-align:center;line-height:1.5}
+.confirm{padding:44px 26px;text-align:center}
+.confirm svg{width:50px;height:50px;stroke:var(--ember-hot);fill:none;margin-bottom:14px}
+.confirm h3{font-family:var(--font-body);font-weight:700;text-transform:none;letter-spacing:0;font-size:21px;margin-bottom:10px}
+.confirm p{color:var(--steel);font-size:14.5px}
+.confirm a{color:var(--ember-hot)}
+.trust{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:center;padding:30px 0 0;margin-top:40px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--steel-dim)}
+.trust b{color:var(--ember);margin-right:6px}
+@media(max-width:900px){.order-grid{grid-template-columns:1fr}.summary{position:static}.feat{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<header>
-  <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="Vertex Steel home">
-      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="M20 3 L37 34 L28 34 L20 19 L12 34 L3 34 Z" fill="url(#vg)"/>
-        <path d="M20 19 L24.5 27 L20 34 L15.5 27 Z" fill="#201C18"/>
-        <defs><linearGradient id="vg" x1="20" y1="3" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F"/></linearGradient></defs>
-      </svg>
-      <span class="brand-txt"><span class="brand-name">VERTEX</span><span class="brand-sub">STEEL&nbsp;·&nbsp;FIRE&nbsp;WORKS</span></span>
-    </a>
-    <nav class="navlinks" id="navlinks">
-      <a href="#builds">Builds</a>
-      <a href="custom-design.html">Custom / DXF</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="#builds" class="btn">See the builds</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
+<header><div class="wrap nav">
+  <a href="#top" class="brand" aria-label="Vertex Steel home"><svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 L37 34 L28 34 L20 19 L12 34 L3 34 Z" fill="url(#vg)"/><path d="M20 19 L24.5 27 L20 34 L15.5 27 Z" fill="#201C18"/><defs><linearGradient id="vg" x1="20" y1="3" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F"/></linearGradient></defs></svg><span class="brand-txt"><span class="brand-name">VERTEX</span><span class="brand-sub">STEEL&nbsp;·&nbsp;FIRE&nbsp;WORKS</span></span></a>
+  <nav class="navlinks" id="navlinks"><a href="#builds">Builds</a><a href="custom-design.html">Custom / DXF</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+  <div class="nav-cta"><a href="#builds" class="btn">See the builds</a><button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</div></header>
 <div class="firebar" aria-hidden="true"></div>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-glow"></div>
   <canvas id="embers"></canvas>
@@ -272,11 +60,8 @@
     <div class="hero-copy">
       <span class="eyebrow">Hand-built in the shop <span class="dim">/ wood &amp; charcoal fired</span></span>
       <h1>Fire, <span class="hot">forged</span><br>to order.</h1>
-      <p class="hero-sub">Fire pits, grills, and griddles <b>cut from flat steel plate</b> and welded solid. Pick a build, set the steel and the size, and we fabricate it for you — <b>wood and charcoal only, never gas.</b></p>
-      <div class="hero-cta">
-        <a href="#builds" class="btn">See the builds ↓</a>
-        <a href="custom-design.html" class="btn btn-ghost">Custom / DXF</a>
-      </div>
+      <p class="hero-sub">Fire pits, chimeneas, grills, and griddles <b>cut from flat steel plate</b> and welded solid. Pick a build, choose your steel and size, and we fabricate it for you — <b>wood and charcoal only, never gas.</b></p>
+      <div class="hero-cta"><a href="#builds" class="btn">See the builds ↓</a><a href="custom-design.html" class="btn btn-ghost">Custom / DXF</a></div>
       <div class="hero-stats">
         <div class="stat"><div class="n">1.2–3</div><div class="l">mm plate</div></div>
         <div class="stat"><div class="n">2–4</div><div class="l">week build</div></div>
@@ -285,71 +70,48 @@
     </div>
     <div class="hero-art">
       <div class="stamp">Est. 2015<b>VERTEX</b>Sheet-cut · Welded</div>
-      <!-- hero: sheet-cut square fire pit with live flames -->
-      <svg viewBox="0 0 400 340" fill="none" aria-label="Sheet-cut square steel fire pit">
-        <defs>
-          <linearGradient id="hM" x1="200" y1="150" x2="200" y2="300" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#8a8f96"/><stop offset=".5" stop-color="#565b61"/><stop offset="1" stop-color="#33373c"/>
-          </linearGradient>
-          <linearGradient id="hMl" x1="150" y1="150" x2="150" y2="290" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#5a5f65"/><stop offset="1" stop-color="#2c3034"/>
-          </linearGradient>
-          <radialGradient id="hGlow" cx="200" cy="160" r="120" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#ffd08a"/><stop offset=".4" stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="hFl" x1="200" y1="70" x2="200" y2="165" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FFE39A"/><stop offset=".55" stop-color="#FBA04B"/><stop offset="1" stop-color="#E24A2B"/>
-          </linearGradient>
-        </defs>
-        <ellipse cx="200" cy="165" rx="120" ry="30" fill="url(#hGlow)" opacity=".8"/>
-        <!-- legs -->
-        <path d="M100 226 L90 280" stroke="#3c4045" stroke-width="10" stroke-linecap="round"/>
-        <path d="M300 226 L310 280" stroke="#3c4045" stroke-width="10" stroke-linecap="round"/>
-        <path d="M200 280 L200 314" stroke="#3c4045" stroke-width="10" stroke-linecap="round"/>
-        <!-- left wall -->
-        <path d="M100 150 L200 204 L200 280 L100 226 Z" fill="url(#hMl)" stroke="#1f1b17" stroke-width="2"/>
-        <!-- right wall -->
-        <path d="M300 150 L200 204 L200 280 L300 226 Z" fill="url(#hM)" stroke="#1f1b17" stroke-width="2"/>
-        <!-- sheet-cut vertex pattern on right wall -->
-        <path d="M232 176 l16 8 l-16 8 Z" fill="#1a1613" opacity=".85"/>
-        <path d="M258 190 l16 8 l-16 8 Z" fill="#1a1613" opacity=".7"/>
-        <path d="M232 208 l16 8 l-16 8 Z" fill="#1a1613" opacity=".55"/>
-        <!-- rim -->
-        <path d="M200 96 L300 150 L200 204 L100 150 Z" fill="url(#hM)" stroke="#20242a" stroke-width="2"/>
-        <path d="M200 96 L300 150 L200 204 L100 150 Z" fill="none" stroke="#9aa0a6" stroke-width="1.4" opacity=".45"/>
-        <!-- opening -->
-        <path d="M200 118 L268 150 L200 182 L132 150 Z" fill="#140f0c"/>
-        <!-- flames -->
-        <g>
-          <path class="flame-b" d="M200 150 C176 118 192 92 180 62 C210 82 218 112 222 90 C234 116 228 142 200 150Z" fill="url(#hFl)" opacity=".9"/>
-          <path class="flame-a" d="M200 152 C182 128 192 98 200 72 C216 100 216 126 226 100 C238 128 226 150 200 152Z" fill="url(#hFl)"/>
-          <path class="flame-c" d="M185 150 C169 132 176 110 172 88 C186 106 190 126 196 108 C202 130 198 146 185 150Z" fill="#FFD089" opacity=".85"/>
-        </g>
-      </svg>
+      <img src="https://i.ibb.co/ym5wQ8MK/r-modern-square-fire-pit-v3-2.webp" alt="Modern Square Fire Pit by Vertex Steel" loading="eager">
     </div>
   </div>
 </section>
 
-<!-- LINEUP -->
 <section class="section" id="builds">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="eyebrow">/ The lineup</span><h2 style="margin-top:14px">Choose your build</h2></div>
+      <div><span class="eyebrow">/ The range</span><h2 style="margin-top:14px">Choose your build</h2></div>
       <p>Tap any build to open its page, where you pick your steel, plate thickness, size, and add-ons — and place your order.</p>
     </div>
-    <div class="grid3 reveal" id="lineup"></div>
+    <div class="grid3 reveal" id="lineup">
+      <a class="card" href="round-table-fire-pit.html"><div class="card-art"><img src="https://i.ibb.co/rGfxBRnd/r-1-1800.webp" alt="Round Table Fire Pit" loading="lazy"></div><div class="card-body"><div class="cn">Round Table Fire Pit</div><div class="cd">A round steel fire bowl set into a patio table with a grill grate — gather, cook, and warm up in one piece.</div><div class="card-foot"><span class="from">From R 4 800</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="twin-pyramid.html"><div class="card-art"><img src="https://i.ibb.co/3YzyFHtg/r-1.webp" alt="Twin Pyramid" loading="lazy"></div><div class="card-body"><div class="cn">Twin Pyramid</div><div class="cd">Two angular sheet-cut pyramids that frame the fire and throw heat forward. A bold sculptural centrepiece.</div><div class="card-foot"><span class="from">From R 3 200</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="pyramid-chimenea.html"><div class="card-art"><img src="https://i.ibb.co/b5gkDS6p/r-1-1-photo-1.webp" alt="Pyramid Chimenea" loading="lazy"></div><div class="card-body"><div class="cn">Pyramid Chimenea</div><div class="cd">A tall four-sided pyramid chimenea that draws the flame upward — dramatic lines, serious presence.</div><div class="card-foot"><span class="from">From R 3 200</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="a-frame-pyramid.html"><div class="card-art"><img src="https://i.ibb.co/VcX8s3qt/r-1-1-photo-7.webp" alt="A-Frame Pyramid" loading="lazy"></div><div class="card-body"><div class="cn">A-Frame Pyramid</div><div class="cd">A pyramid with an open A-frame cut-out, so the fire is visible from every side of the yard.</div><div class="card-foot"><span class="from">From R 3 300</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="solid-pyramid.html"><div class="card-art"><img src="https://i.ibb.co/xSjBNN3F/r-1-1-photo-8.webp" alt="Solid Pyramid" loading="lazy"></div><div class="card-body"><div class="cn">Solid Pyramid</div><div class="cd">The classic sheet-steel pyramid — clean, solid faces that channel smoke straight up and out.</div><div class="card-foot"><span class="from">From R 3 100</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="sail-fire-screen.html"><div class="card-art"><img src="https://i.ibb.co/d4CZ5NCX/r-1-2.webp" alt="Sail Fire Screen" loading="lazy"></div><div class="card-body"><div class="cn">Sail Fire Screen</div><div class="cd">Two curved sail-shaped panels wrapping a low fire — part sculpture, part windbreak, all statement.</div><div class="card-foot"><span class="from">From R 3 600</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="flame-cone.html"><div class="card-art"><img src="https://i.ibb.co/8Rtd624/r-1-photo-1-1.webp" alt="Flame Cone" loading="lazy"></div><div class="card-body"><div class="cn">Flame Cone</div><div class="cd">A tall tapered cone with cut-out detailing that glows from within once the fire gets going.</div><div class="card-foot"><span class="from">From R 3 400</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="square-table-fire-pit.html"><div class="card-art"><img src="https://i.ibb.co/d4FtJhg9/r-1-photo-1.webp" alt="Square Table Fire Pit" loading="lazy"></div><div class="card-body"><div class="cn">Square Table Fire Pit</div><div class="cd">A modern square patio table with a linear fire in the centre — dining and fireside in one build.</div><div class="card-foot"><span class="from">From R 4 800</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="ember-cone.html"><div class="card-art"><img src="https://i.ibb.co/7w8sb1M/r-1-photo-6-2.webp" alt="Ember Cone" loading="lazy"></div><div class="card-body"><div class="cn">Ember Cone</div><div class="cd">A teardrop chimenea finished in deep ember tones — a slow, contained burn with a warm glow.</div><div class="card-foot"><span class="from">From R 3 400</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="curved-bowl.html"><div class="card-art"><img src="https://i.ibb.co/1fvsyp5D/r-antic-1.webp" alt="Curved Bowl" loading="lazy"></div><div class="card-body"><div class="cn">Curved Bowl</div><div class="cd">A low, curved fire bowl on angled legs — simple, sturdy, and made for long evenings around the coals.</div><div class="card-foot"><span class="from">From R 2 800</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="collapsible-braai-grill.html"><div class="card-art"><img src="https://i.ibb.co/1GtkDhsg/r-collapsible-grill-with-an-ashtray-and-a-lid-4.webp" alt="Collapsible Braai Grill" loading="lazy"></div><div class="card-body"><div class="cn">Collapsible Braai Grill</div><div class="cd">A full charcoal braai with a lid, ash tray, and wood storage below — the workhorse of the range.</div><div class="card-foot"><span class="from">From R 5 900</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="hanging-sphere.html"><div class="card-art"><img src="https://i.ibb.co/W4Ys7Qs4/r-fire-pit-flying-on-chains-ii-1.webp" alt="Hanging Sphere" loading="lazy"></div><div class="card-body"><div class="cn">Hanging Sphere</div><div class="cd">A cut-steel sphere cradled in a circular stand — a floating ball of fire that turns any patio into a scene.</div><div class="card-foot"><span class="from">From R 4 200</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="modern-square-fire-pit.html"><div class="card-art"><img src="https://i.ibb.co/ym5wQ8MK/r-modern-square-fire-pit-v3-2.webp" alt="Modern Square Fire Pit" loading="lazy"></div><div class="card-body"><div class="cn">Modern Square Fire Pit</div><div class="cd">Our clean-lined square pit with an optional grill grate — the everyday favourite, cut from flat plate.</div><div class="card-foot"><span class="from">From R 2 900</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="radiance-spiral.html"><div class="card-art"><img src="https://i.ibb.co/bRDXd1x4/r-radiance-1.webp" alt="Radiance Spiral" loading="lazy"></div><div class="card-body"><div class="cn">Radiance Spiral</div><div class="cd">A twisting spiral of steel that lets the fire breathe and flicker through the gaps. A real conversation piece.</div><div class="card-foot"><span class="from">From R 3 900</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="sphere-fire-ball.html"><div class="card-art"><img src="https://i.ibb.co/VY4XB0Nh/r-sphere-ball-1.webp" alt="Sphere Fire Ball" loading="lazy"></div><div class="card-body"><div class="cn">Sphere Fire Ball</div><div class="cd">A globe of laser-cut steel that becomes a glowing sphere of embers once lit — 360° of fire.</div><div class="card-foot"><span class="from">From R 3 600</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="stylish-square.html"><div class="card-art"><img src="https://i.ibb.co/Ddyz4H5/r-stylish-square-with-legs-v1-2.webp" alt="Stylish Square" loading="lazy"></div><div class="card-body"><div class="cn">Stylish Square</div><div class="cd">A faceted square bowl raised on slim legs — sharp, modern lines with a warm fire at the centre.</div><div class="card-foot"><span class="from">From R 3 100</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="spark-arrestor-triangle.html"><div class="card-art"><img src="https://i.ibb.co/4wtYZ5DJ/r-triangle-with-spark-arrestor-1.webp" alt="Spark-Arrestor Triangle" loading="lazy"></div><div class="card-body"><div class="cn">Spark-Arrestor Triangle</div><div class="cd">An angular triangular pit fitted with a spark arrestor — bold looks with safer, contained sparks.</div><div class="card-foot"><span class="from">From R 2 700</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="triangular-fire-pit.html"><div class="card-art"><img src="https://i.ibb.co/tpswRjKj/r-triangular-1.webp" alt="Triangular Fire Pit" loading="lazy"></div><div class="card-body"><div class="cn">Triangular Fire Pit</div><div class="cd">A sharp three-sided pit, sheet-cut and welded — the bold shape people always ask about first.</div><div class="card-foot"><span class="from">From R 2 650</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="the-twist.html"><div class="card-art"><img src="https://i.ibb.co/NnWmVpJk/r-twist-v3-19in-1.webp" alt="The Twist" loading="lazy"></div><div class="card-body"><div class="cn">The Twist</div><div class="cd">A funnel of twisting steel bands that spiral the flame upward — hypnotic once the fire is roaring.</div><div class="card-foot"><span class="from">From R 3 900</span><span class="fp">View &amp; order →</span></div></div></a>
+      <a class="card" href="volumetric-square.html"><div class="card-art"><img src="https://i.ibb.co/YBhzmHQD/r-volumetric-square-fire-pit-1.webp" alt="Volumetric Square" loading="lazy"></div><div class="card-body"><div class="cn">Volumetric Square</div><div class="cd">An inverted-pyramid square pit that tapers to a point — minimal, geometric, and endlessly photogenic.</div><div class="card-foot"><span class="from">From R 2 500</span><span class="fp">View &amp; order →</span></div></div></a>
+    </div>
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="section" id="process">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">/ In the shop</span><h2 style="margin-top:14px">From plate to patio</h2></div>
-      <p>Every piece runs the same four stations. No castings, no imported shells — solid steel, worked by hand.</p>
-    </div>
+    <div class="sec-head reveal"><div><span class="eyebrow">/ In the shop</span><h2 style="margin-top:14px">From plate to patio</h2></div>
+      <p>Every piece runs the same four stations. No castings, no imported shells — solid steel, worked by hand.</p></div>
     <div class="steps reveal">
-      <div class="step hot"><div class="snum">01</div><h3>Cut</h3><p>Your whole pit is plasma-cut from a single sheet of mild steel plate — squares, triangles, whatever the design calls for. Clean edges, tight nesting.</p></div>
+      <div class="step hot"><div class="snum">01</div><h3>Cut</h3><p>Profiles are plasma-cut from mild or stainless steel plate to your size — squares, triangles, cones, whatever the design calls for.</p></div>
       <div class="step"><div class="snum">02</div><h3>Form</h3><p>Panels are folded and press-braked into the final shape. This is where a flat sheet becomes something that holds a fire.</p></div>
       <div class="step"><div class="snum">03</div><h3>Weld</h3><p>Every seam is MIG-welded solid and ground flush — joints built to take real heat and outlast the guarantee.</p></div>
       <div class="step"><div class="snum">04</div><h3>Finish</h3><p>Mild steel is wire-brushed and oil-sealed; stainless is brushed bright. Then crated and couriered to your door.</p></div>
@@ -357,187 +119,58 @@
   </div>
 </section>
 
-<!-- MATERIALS -->
 <section class="section">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">/ The steel &amp; the fire</span><h2 style="margin-top:14px">Pick your steel</h2></div>
-      <p>The metal you choose changes the look, the aging, and the price. Here's the honest rundown — and how it burns.</p>
-    </div>
+    <div class="sec-head reveal"><div><span class="eyebrow">/ The steel &amp; the fire</span><h2 style="margin-top:14px">Pick your steel</h2></div>
+      <p>The metal you choose changes the look, the aging, and the price. Here's the honest rundown — and how it burns.</p></div>
     <div class="mats reveal">
-      <div class="mat">
-        <div class="mat-swatch" style="background:linear-gradient(135deg,#7c8188,#40454b 55%,#2c3035)"></div>
-        <div class="mat-body"><div class="mn">Mild · 1.2–3 mm</div><h3>Mild Steel</h3><p>Our workhorse plate. Wire-brushed and oil-sealed to a deep gunmetal that darkens with every fire — ages like a good cast-iron pan. Best value.</p></div>
-      </div>
-      <div class="mat">
-        <div class="mat-swatch" style="background:linear-gradient(135deg,#d3d8de,#a2aab2 55%,#767d85)"></div>
-        <div class="mat-body"><div class="mn">304 · 1.2–3 mm</div><h3>Stainless Steel</h3><p>Bright, rust-proof, and low-maintenance. The premium pick for coastal air, poolsides, and clean modern builds. Wipes clean, won't stain.</p></div>
-      </div>
-      <div class="mat">
-        <div class="mat-swatch" style="background:linear-gradient(135deg,#FFD089,#FBA04B 50%,#D2452B)"></div>
-        <div class="mat-body"><div class="mn">Fuel · No gas</div><h3>Wood &amp; Charcoal</h3><p>Built for real fire — wood and charcoal, not a gas burner. Proper coals, proper flame, a proper braai. The heat and the smell you actually want.</p></div>
-      </div>
+      <div class="mat"><div class="mat-swatch" style="background:linear-gradient(135deg,#7c8188,#40454b 55%,#2c3035)"></div>
+        <div class="mat-body"><div class="mn">Mild · 1.2–3 mm</div><h3>Mild Steel</h3><p>Our workhorse plate. Wire-brushed and oil-sealed to a deep gunmetal that darkens with every fire — ages like a good cast-iron pan. Best value.</p></div></div>
+      <div class="mat"><div class="mat-swatch" style="background:linear-gradient(135deg,#d3d8de,#a2aab2 55%,#767d85)"></div>
+        <div class="mat-body"><div class="mn">304 · 1.2–3 mm</div><h3>Stainless Steel</h3><p>Bright, rust-proof, and low-maintenance. The premium pick for coastal air, poolsides, and clean modern builds. Wipes clean, won't stain.</p></div></div>
+      <div class="mat"><div class="mat-swatch" style="background:linear-gradient(135deg,#FFD089,#FBA04B 50%,#D2452B)"></div>
+        <div class="mat-body"><div class="mn">Fuel · No gas</div><h3>Wood &amp; Charcoal</h3><p>Built for real fire — wood and charcoal, not a gas burner. Proper coals, proper flame, a proper braai. The heat and the smell you actually want.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- QUOTES -->
 <section class="section">
   <div class="wrap">
     <div class="sec-head reveal"><div><span class="eyebrow">/ From the field</span><h2 style="margin-top:14px">Burned in, broken in</h2></div></div>
     <div class="quotes reveal">
-      <div class="quote">
-        <p>The square pit is a beast — cut clean out of one plate, and the welds are tidy enough to frame. Coals get properly ripping.</p>
-        <div class="who"><span class="dot"></span><span><b>Themba M.</b><span>Backyard braai master · Pretoria</span></span></div>
-      </div>
-      <div class="quote">
-        <p>We ordered three for a lodge boma. Mild steel, wood-fired, built like tanks, and couriered right on schedule. Repeat customer now.</p>
-        <div class="who"><span class="dot"></span><span><b>Lienke R.</b><span>Lodge owner · Cape Town</span></span></div>
-      </div>
+      <div class="quote"><p>The square pit is a beast — cut clean out of one plate, and the welds are tidy enough to frame. Coals get properly ripping.</p>
+        <div class="who"><span class="dot"></span><span><b>Themba M.</b><span>Backyard braai master · Pretoria</span></span></div></div>
+      <div class="quote"><p>We ordered three for a lodge boma. Mild steel, wood-fired, built like tanks, and couriered right on schedule. Repeat customer now.</p>
+        <div class="who"><span class="dot"></span><span><b>Lienke R.</b><span>Lodge owner · Cape Town</span></span></div></div>
     </div>
   </div>
 </section>
 
-<!-- FINAL -->
 <section class="final" id="contact">
   <div class="hero-glow"></div>
   <div class="wrap">
     <span class="eyebrow reveal">/ Let's build it</span>
     <h2 class="reveal" style="margin-top:16px">Start a fire<br>worth gathering around.</h2>
     <p class="reveal">Pick a build or send your own drawing. We'll reply within two business days with a quote and a slot in the shop schedule.</p>
-    <div class="hero-cta reveal">
-      <a href="#builds" class="btn">See the builds</a>
-      <a href="mailto:shop@vertexsteel.co.za" class="btn btn-ghost">shop@vertexsteel.co.za</a>
-    </div>
+    <div class="hero-cta reveal"><a href="#builds" class="btn">See the builds</a><a href="mailto:shop@vertexsteel.co.za" class="btn btn-ghost">shop@vertexsteel.co.za</a></div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="brand">
-          <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-            <path d="M20 3 L37 34 L28 34 L20 19 L12 34 L3 34 Z" fill="url(#vg2)"/>
-            <path d="M20 19 L24.5 27 L20 34 L15.5 27 Z" fill="#201C18"/>
-            <defs><linearGradient id="vg2" x1="20" y1="3" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F"/></linearGradient></defs>
-          </svg>
-          <span class="brand-txt"><span class="brand-name">VERTEX</span><span class="brand-sub">STEEL&nbsp;·&nbsp;FIRE&nbsp;WORKS</span></span>
-        </div>
-        <p>Sheet-cut steel fire pits, grills, and griddles — cut, formed, and welded in the shop. Wood and charcoal fired. Built to order, couriered nationwide.</p>
-      </div>
-      <div class="foot-cols">
-        <div class="fcol"><h4>Builds</h4><a href="pit-square.html">Square Fire Pit</a><a href="pit-triangle.html">Triangle Fire Pit</a><a href="grill-santa-maria.html">Santa Maria Grill</a><a href="griddle-flat-top.html">Flat-Top Griddle</a></div>
-        <div class="fcol"><h4>Shop</h4><a href="custom-design.html">Custom / DXF</a><a href="#process">Process</a><a href="#contact">Lead times</a><a href="#contact">Delivery &amp; returns</a></div>
-        <div class="fcol"><h4>Contact</h4><a href="mailto:shop@vertexsteel.co.za">shop@vertexsteel.co.za</a><a href="tel:+27825550137">+27 82 555 0137</a><a href="#">Instagram</a></div>
-      </div>
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand"><div class="brand"><svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 L37 34 L28 34 L20 19 L12 34 L3 34 Z" fill="url(#vg2)"/><path d="M20 19 L24.5 27 L20 34 L15.5 27 Z" fill="#201C18"/><defs><linearGradient id="vg2" x1="20" y1="3" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FBA04B"/><stop offset="1" stop-color="#E7712F"/></linearGradient></defs></svg><span class="brand-txt"><span class="brand-name">VERTEX</span><span class="brand-sub">STEEL&nbsp;·&nbsp;FIRE&nbsp;WORKS</span></span></div>
+      <p>Sheet-cut steel fire pits, chimeneas, grills, and griddles — cut, formed, and welded in the shop. Wood and charcoal fired. Built to order, couriered nationwide.</p></div>
+    <div class="foot-cols">
+      <div class="fcol"><h4>Builds</h4><a href="round-table-fire-pit.html">Round Table Fire Pit</a><a href="twin-pyramid.html">Twin Pyramid</a><a href="pyramid-chimenea.html">Pyramid Chimenea</a><a href="a-frame-pyramid.html">A-Frame Pyramid</a><a href="#builds">All builds</a></div>
+      <div class="fcol"><h4>Shop</h4><a href="custom-design.html">Custom / DXF</a><a href="#process">Process</a><a href="#contact">Lead times</a></div>
+      <div class="fcol"><h4>Contact</h4><a href="mailto:shop@vertexsteel.co.za">shop@vertexsteel.co.za</a><a href="tel:+27825550137">+27 82 555 0137</a><a href="#">Instagram</a></div>
     </div>
-    <div class="foot-bot"><span>© 2026 Vertex Steel Fire Works</span><span>Sheet-cut · Welded · Made to order</span></div>
   </div>
-</footer>
+  <div class="foot-bot"><span>© 2026 Vertex Steel Fire Works</span><span>Sheet-cut · Welded · Made to order</span></div>
+</div></footer>
 
 <script>
-/* ember canvas */
-(function(){
-  var c=document.getElementById('embers'),x=c.getContext('2d'),W,H,parts=[];
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
-  function mk(){return{x:Math.random()*W,y:H+Math.random()*40,r:Math.random()*1.8+.5,vy:Math.random()*.5+.25,vx:(Math.random()-.5)*.3,life:Math.random(),hue:Math.random()*30+18};}
-  function init(){size();parts=[];var n=Math.min(70,Math.floor(W/16));for(var i=0;i<n;i++){parts.push(mk());parts[i].y=Math.random()*H;}}
-  function draw(){x.clearRect(0,0,W,H);for(var i=0;i<parts.length;i++){var p=parts[i];p.y-=p.vy;p.x+=p.vx+Math.sin(p.y/40)*.2;p.life+=.01;var a=Math.max(0,.75*(1-(H-p.y)/H))*(0.6+0.4*Math.sin(p.life*3));x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='hsla('+p.hue+',95%,'+(58+p.r*6)+'%,'+a+')';x.fill();if(p.y< -10){parts[i]=mk();}}requestAnimationFrame(draw);}
-  if(!reduce){init();draw();window.addEventListener('resize',init);}
-})();
-
-/* preview SVGs (metal color driven by CSS vars) */
-function metalDefs(){
-  return '<defs>'+
-    '<linearGradient id="mMain" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--metal-edge)"/><stop offset=".5" stop-color="var(--metal-top)"/><stop offset="1" stop-color="var(--metal-bot)"/></linearGradient>'+
-    '<linearGradient id="fFl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE39A"/><stop offset=".55" stop-color="#FBA04B"/><stop offset="1" stop-color="#E24A2B"/></linearGradient>'+
-    '<radialGradient id="fGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd08a"/><stop offset=".5" stop-color="#FBA04B" stop-opacity=".7"/><stop offset="1" stop-color="#E7712F" stop-opacity="0"/></radialGradient>'+
-  '</defs>';
-}
-var flames='<g>'+
-  '<path class="flame-b" d="M200 150 C180 126 190 104 182 82 C204 98 210 122 214 106 C224 124 218 144 200 150Z" fill="url(#fFl)" opacity=".9"/>'+
-  '<path class="flame-a" d="M200 152 C186 134 192 112 200 92 C212 114 212 134 220 114 C230 136 220 152 200 152Z" fill="url(#fFl)"/>'+
-  '</g>';
-
-var SVGS={
-  square:function(){return '<svg viewBox="0 0 400 320">'+metalDefs()+
-    '<ellipse cx="200" cy="150" rx="122" ry="30" fill="url(#fGlow)"/>'+
-    '<path d="M106 150 L98 200" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M294 150 L302 200" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M200 258 L200 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M106 150 L200 194 L200 258 L106 214 Z" fill="var(--metal-bot)" stroke="#1f1b17" stroke-width="2"/>'+
-    '<path d="M294 150 L200 194 L200 258 L294 214 Z" fill="url(#mMain)" stroke="#1f1b17" stroke-width="2"/>'+
-    '<path d="M236 176 l14 7 l-14 7 Z" fill="#14110F" opacity=".85"/>'+
-    '<path d="M258 189 l14 7 l-14 7 Z" fill="#14110F" opacity=".7"/>'+
-    '<path d="M236 205 l14 7 l-14 7 Z" fill="#14110F" opacity=".55"/>'+
-    '<path d="M200 106 L294 150 L200 194 L106 150 Z" fill="url(#mMain)" stroke="#20242a" stroke-width="2"/>'+
-    '<path d="M200 124 L266 150 L200 176 L134 150 Z" fill="#14110F"/>'+
-    flames+'</svg>';},
-  triangle:function(){return '<svg viewBox="0 0 400 320">'+metalDefs()+
-    '<ellipse cx="200" cy="164" rx="120" ry="28" fill="url(#fGlow)"/>'+
-    '<path d="M140 232 L128 272" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M260 232 L272 272" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M200 244 L200 280" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M110 168 L290 168 L200 244 Z" fill="var(--metal-bot)" stroke="#1f1b17" stroke-width="2"/>'+
-    '<path d="M188 196 l14 7 l-14 7 Z" fill="#14110F" opacity=".7"/>'+
-    '<path d="M210 196 l14 7 l-14 7 Z" fill="#14110F" opacity=".55"/>'+
-    '<path d="M110 168 L290 168 L200 116 Z" fill="url(#mMain)" stroke="#20242a" stroke-width="2"/>'+
-    '<path d="M138 166 L262 166 L200 130 Z" fill="#14110F"/>'+
-    flames+'</svg>';},
-  santa:function(){return '<svg viewBox="0 0 400 320">'+metalDefs()+
-    '<ellipse cx="205" cy="150" rx="120" ry="30" fill="url(#fGlow)"/>'+flames+
-    '<g stroke="#20242a" stroke-width="3"><line x1="120" y1="150" x2="290" y2="150"/><line x1="120" y1="162" x2="290" y2="162"/><line x1="120" y1="174" x2="290" y2="174"/><line x1="120" y1="186" x2="290" y2="186"/></g>'+
-    '<path d="M104 188 h202 v42 a10 10 0 0 1 -10 10 h-182 a10 10 0 0 1 -10 -10 Z" fill="url(#mMain)" stroke="#1f1b17" stroke-width="2"/>'+
-    '<rect x="104" y="182" width="202" height="10" rx="3" fill="var(--metal-edge)" opacity=".8"/>'+
-    '<circle cx="322" cy="150" r="24" fill="none" stroke="var(--metal-top)" stroke-width="6"/>'+
-    '<circle cx="322" cy="150" r="4" fill="var(--metal-edge)"/>'+
-    '<g stroke="var(--metal-top)" stroke-width="4"><line x1="322" y1="130" x2="322" y2="170"/><line x1="302" y1="150" x2="342" y2="150"/></g>'+
-    '<path d="M120 240 L104 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M290 240 L306 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M120 288 h186" stroke="var(--metal-bot)" stroke-width="6" stroke-linecap="round"/>'+
-    '</svg>';},
-  flat:function(){return '<svg viewBox="0 0 400 320">'+metalDefs()+
-    '<ellipse cx="200" cy="188" rx="150" ry="24" fill="url(#fGlow)" opacity=".7"/>'+
-    '<g stroke="#FBA04B" stroke-width="3" stroke-linecap="round" opacity=".55" class="flame-a"><path d="M150 150 q6 -12 0 -24" fill="none"/><path d="M200 145 q6 -12 0 -24" fill="none"/><path d="M250 150 q6 -12 0 -24" fill="none"/></g>'+
-    '<path d="M96 168 L304 168 L336 200 L64 200 Z" fill="url(#mMain)" stroke="#1f1b17" stroke-width="2"/>'+
-    '<path d="M96 168 L304 168 L308 176 L92 176 Z" fill="var(--metal-edge)" opacity=".7"/>'+
-    '<rect x="70" y="200" width="260" height="10" rx="3" fill="var(--metal-bot)"/>'+
-    '<circle cx="200" cy="210" r="6" fill="#14110F"/>'+
-    '<path d="M92 210 L78 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M308 210 L322 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M150 210 L150 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '<path d="M250 210 L250 292" stroke="var(--metal-bot)" stroke-width="9" stroke-linecap="round"/>'+
-    '</svg>';}
-};
-
-/* data for lineup cards */
-var FIN={
-  mild:{metal:['#9aa0a6','#767b81','#3b3f45']},
-  stain:{metal:['#d3d8de','#a2aab2','#767d85']}
-};
-function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0');}
-function money(n){return 'R\u00A0'+fmt(n);}
-/* lineup */
-(function(){
-  var items=[
-    {b:'square',n:'Square Fire Pit',fin:'mild',url:'pit-square.html',d:'Our signature pit — cut from a single sheet of steel and folded square. Deep enough for real logs.',p:2450},
-    {b:'triangle',n:'Triangle Fire Pit',fin:'mild',url:'pit-triangle.html',d:'A sharp three-sided pit, sheet-cut and welded. The bold shape people ask us about first.',p:2650},
-    {b:'santa',n:'Santa Maria Grill',fin:'stain',url:'grill-santa-maria.html',d:'Crank-adjustable grill for live-fire cooking. Raise and lower the grate over the coals on the fly.',p:5900},
-    {b:'flat',n:'Flat-Top Griddle',fin:'mild',url:'griddle-flat-top.html',d:'Restaurant-style steel griddle with a grease trough. Smash burgers to breakfast, all on wood and charcoal.',p:4300}
-  ];
-  var html=items.map(function(it){
-    var metal=FIN[it.fin].metal;
-    return '<a class="card" href="'+it.url+'"><div class="card-art" style="--metal-edge:'+metal[0]+';--metal-top:'+metal[1]+';--metal-bot:'+metal[2]+'">'+SVGS[it.b]()+'</div>'+
-      '<div class="card-body"><div class="cn">'+it.n+'</div><div class="cd">'+it.d+'</div>'+
-      '<div class="card-foot"><span class="from">From '+money(it.p)+'</span><span class="fp">View &amp; order →</span></div></div></a>';
-  }).join('');
-  document.getElementById('lineup').innerHTML=html;
-})();
-
-/* nav + reveal */
+(function(){var c=document.getElementById('embers');if(!c)return;var x=c.getContext('2d'),W,H,parts=[];var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+Math.random()*40,r:Math.random()*1.8+.5,vy:Math.random()*.5+.25,vx:(Math.random()-.5)*.3,life:Math.random(),hue:Math.random()*30+18};}function init(){size();parts=[];var n=Math.min(80,Math.floor(W/15));for(var i=0;i<n;i++){parts.push(mk());parts[i].y=Math.random()*H;}}function draw(){x.clearRect(0,0,W,H);for(var i=0;i<parts.length;i++){var p=parts[i];p.y-=p.vy;p.x+=p.vx+Math.sin(p.y/40)*.2;p.life+=.01;var a=Math.max(0,.72*(1-(H-p.y)/H))*(0.6+0.4*Math.sin(p.life*3));x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='hsla('+p.hue+',95%,'+(58+p.r*6)+'%,'+a+')';x.fill();if(p.y< -10){parts[i]=mk();}}requestAnimationFrame(draw);}if(!reduce){init();draw();window.addEventListener('resize',init);}})();
 document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navlinks').classList.toggle('open');});
 document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});});
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
