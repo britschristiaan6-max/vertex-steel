@@ -273,7 +273,9 @@ img{max-width:100%;height:auto}
 .form input,.form textarea{width:100%;background:var(--panel);border:1px solid var(--line-2);border-radius:2px;color:var(--ash);font-family:var(--font-body);font-size:15px;padding:11px 12px;transition:.15s;resize:vertical}
 .form input:focus,.form textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,113,47,.16)}
 .form .err{border-color:#e0574f}
-.place{width:100%;justify-content:center;margin-top:20px;padding:14px}
+.wa{width:100%;justify-content:center;margin-top:20px;padding:14px;background:linear-gradient(180deg,#3ad07f,#22b063);border:1px solid #1c9b56;color:#06281a}
+.wa:hover{filter:brightness(1.06)}
+.place{width:100%;justify-content:center;margin-top:10px;padding:13px}
 .form-note{font-family:var(--font-mono);font-size:10.5px;color:var(--steel-dim);letter-spacing:.03em;margin-top:12px;text-align:center;line-height:1.5}
 .confirm{padding:44px 26px;text-align:center}
 .confirm svg{width:50px;height:50px;stroke:var(--ember-hot);fill:none;margin-bottom:14px}
@@ -284,6 +286,7 @@ img{max-width:100%;height:auto}
 .trust b{color:var(--ember);margin-right:6px}
 @media(max-width:900px){.order-grid{grid-template-columns:1fr}.summary{position:static}.feat{grid-template-columns:1fr}}
 </style>
+<script src="config.js"></script>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -301,7 +304,7 @@ img{max-width:100%;height:auto}
       <span class="eyebrow">/ Fire Pit</span>
       <h1>Modern Square Fire Pit</h1>
       <p class="hero-sub">Our clean-lined square pit with an optional grill grate — the everyday favourite, cut from flat plate.</p>
-      <div class="prod-from">From <b>R 2 900</b> incl. VAT</div>
+      <div class="prod-from">From <b>R 4 100</b> · price updates as you configure</div>
       <ul class="feat"><li>Sheet-cut &amp; welded solid</li><li>Mild or 304 stainless</li><li>1.2 / 2 / 3 mm plate</li><li>Wood &amp; charcoal — never gas</li><li>Made to order in South Africa</li><li>2–4 week build, couriered</li></ul>
       <div class="hero-cta"><a href="#order" class="btn">Configure &amp; order ↓</a><a href="index.html#builds" class="btn btn-ghost">Other builds</a></div>
     </div>
@@ -316,12 +319,14 @@ img{max-width:100%;height:auto}
     <div class="order-grid reveal">
       <div class="order-config">
   <div class="field"><div class="flabel"><span>01 · Steel &amp; finish</span><span class="fval" id="lblFin">Mild Steel</span></div>
-    <div class="opts" id="finOpts"><div class="opt sel" data-fin="mild">Mild Steel<small>Standard</small></div><div class="opt" data-fin="stain">Stainless<small>+ R1 800</small></div></div></div>
+    <div class="opts" id="finOpts"><div class="opt sel" data-fin="mild">Mild Steel<small>Standard</small></div><div class="opt" data-fin="stain">Stainless<small>Premium</small></div></div></div>
   <div class="field"><div class="flabel"><span>02 · Plate thickness</span><span class="fval" id="lblThick">2.0 mm</span></div>
-    <div class="opts" id="thickOpts"><div class="opt" data-thick="t12">1.2<small>mm</small></div><div class="opt sel" data-thick="t2">2.0<small>+ R320</small></div><div class="opt" data-thick="t3">3.0<small>+ R680</small></div></div></div>
-  <div class="field"><div class="flabel"><span>03 · Size (width)</span><span class="fval" id="lblSize">750 mm</span></div>
-    <div class="opts" id="sizeOpts"><div class="opt" data-size="s">600<small>mm</small></div><div class="opt sel" data-size="m">750<small>+ R650</small></div><div class="opt" data-size="l">900<small>+ R1 350</small></div></div></div>
-  <div class="field"><div class="flabel"><span>04 · Add-ons</span><span class="fval" id="lblAdd">0 selected</span></div>
+    <div class="opts" id="thickOpts"><div class="opt" data-thick="t12">1.2<small>mm</small></div><div class="opt sel" data-thick="t2">2.0<small>mm</small></div><div class="opt" data-thick="t3">3.0<small>mm</small></div></div></div>
+  <div class="field"><div class="flabel"><span>03 · Size — width (height follows)</span><span class="fval" id="lblSize">750 × 480 mm</span></div>
+    <div class="opts" id="sizeOpts"><div class="opt" data-size="s">600<small>Small</small></div><div class="opt sel" data-size="m">750<small>Medium</small></div><div class="opt" data-size="l">900<small>Large</small></div></div></div>
+  <div class="field"><div class="flabel"><span>04 · Delivery</span><span class="fval" id="lblDeliv">Gauteng</span></div>
+    <div class="opts" id="delivOpts"><div class="opt sel" data-deliv="gp">Gauteng<small>R 800</small></div><div class="opt" data-deliv="out">Outside GP<small>R 1 200</small></div><div class="opt" data-deliv="collect">Collect<small>Free</small></div></div></div>
+  <div class="field"><div class="flabel"><span>05 · Add-ons</span><span class="fval" id="lblAdd">0 selected</span></div>
     <div class="opts addon" id="addOpts"></div></div>
   <div class="specsheet">
     <div class="spec"><div class="sk">Material</div><div class="sv" id="spMat">2 mm mild steel</div></div>
@@ -341,13 +346,14 @@ img{max-width:100%;height:auto}
             <label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" autocomplete="tel">
             <label for="town">Delivery town / suburb</label><input id="town" type="text">
             <label for="notes">Notes (optional)</label><textarea id="notes" rows="2"></textarea>
-            <button class="btn place" id="placeBtn">Place order request →</button>
-            <p class="form-note">No payment now — we confirm stock, final price &amp; lead time within 2 business days.</p>
+            <button class="btn wa" id="waBtn" type="button">Order on WhatsApp →</button>
+            <button class="btn btn-ghost place" id="placeBtn" type="button">Send order by email →</button>
+            <p class="form-note">WhatsApp is fastest. No payment now — we confirm stock, final price &amp; lead time within 2 business days.</p>
           </div>
           <div class="confirm" id="confirm" style="display:none">
             <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
             <h3>Order ready, <span id="confName">there</span>!</h3>
-            <p>We've opened your email app to send the request. If it didn't open, mail us at <a href="mailto:shop@vertexsteel.co.za">shop@vertexsteel.co.za</a> — we'll confirm within 2 business days.</p>
+            <p id="confMsg">We've sent your order request — we'll confirm within 2 business days.</p>
           </div>
         </div>
       </div>
@@ -367,7 +373,7 @@ img{max-width:100%;height:auto}
   </div>
   <div class="foot-bot"><span>© 2026 Vertex Steel Fire Works</span><span>Sheet-cut · Welded · Made to order</span></div>
 </div></footer>
-<script>window.PDATA={"name":"Modern Square Fire Pit","base":2900,"area":1.5,"hw":0};window.PADDONS=["grate","cover","screen","ash"];
+<script>window.PDATA={"name":"Modern Square Fire Pit","base":2900,"area":1.5,"hw":0,"hr":0.5};window.PADDONS=["grate","cover","screen","ash"];
 /* ---- ambient embers ---- */
 (function(){
   var c=document.getElementById('embers');if(!c)return;var x=c.getContext('2d'),W,H,parts=[];
@@ -390,84 +396,136 @@ var ADDCAT={
   grate:{n:'Swing grill grate',p:750},cover:{n:'Fitted cover',p:380},screen:{n:'Spark screen',p:520},ash:{n:'Ash tray',p:340},
   xgrate:{n:'Extra grate',p:650},rotis:{n:'Rotisserie kit',p:1450},scraper:{n:'Scraper set',p:180},splash:{n:'Splash guard',p:520}
 };
+/* ---- pricing model (from Christiaan's real costs) ---- */
+var PLATES={s:1,m:2,l:3};              // plates used per size
+var HOURS={s:4,m:6,l:8};               // build hours per size
+var LABOUR=250;                        // R per hour
+var MARKUP=1.5;                        // 50% markup
+var CUT=1200;                          // intricate cutting, R per plate
+var STEELP={                           // steel cost R per plate, by finish + thickness
+  mild:{t12:520,t2:867,t3:1300},
+  stain:{t12:1400,t2:2350,t3:3400}
+};
+var DELIVERY={gp:{n:'Gauteng',p:800},out:{n:'Outside Gauteng',p:1200},collect:{n:'Collect from shop',p:0}};
 function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0');}
 function money(n){return 'R\u00A0'+fmt(n);}
 
 var PDATA=window.PDATA,PADDONS=window.PADDONS||[];
 var qs=new URLSearchParams(location.search);
-var state={fin:'mild',thick:'t2',size:'m',add:{}};
+var state={fin:'mild',thick:'t2',size:'m',deliv:'gp',add:{}};
 PADDONS.forEach(function(k){state.add[k]=false;});
 if(FIN[qs.get('fin')])state.fin=qs.get('fin');
 if(THICK[qs.get('thick')])state.thick=qs.get('thick');
 if(SIZE[qs.get('size')])state.size=qs.get('size');
+if(DELIVERY[qs.get('deliv')])state.deliv=qs.get('deliv');
 
 document.getElementById('addOpts').innerHTML=PADDONS.map(function(k){
   return '<div class="opt chip" data-add="'+k+'">'+ADDCAT[k].n+'<span class="plus">+'+fmt(ADDCAT[k].p)+'</span></div>';
 }).join('');
 function markSel(id,key){var els=document.querySelectorAll('#'+id+' .opt');for(var i=0;i<els.length;i++){els[i].classList.toggle('sel',els[i].dataset[key]===state[key]);}}
-markSel('finOpts','fin');markSel('thickOpts','thick');markSel('sizeOpts','size');
+markSel('finOpts','fin');markSel('thickOpts','thick');markSel('sizeOpts','size');markSel('delivOpts','deliv');
 function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
 
 function render(){
-  var f=FIN[state.fin],s=SIZE[state.size],th=THICK[state.thick];
-  var price=PDATA.base+f.add+th.add+s.add,lines=[];
-  PADDONS.forEach(function(k){if(state.add[k]){price+=ADDCAT[k].p;lines.push([ADDCAT[k].n,ADDCAT[k].p]);}});
+  var f=FIN[state.fin],s=SIZE[state.size],th=THICK[state.thick],dv=DELIVERY[state.deliv];
+  var plates=PLATES[state.size],hrs=HOURS[state.size];
+  var steel=STEELP[state.fin][state.thick];
+  var material=plates*(steel+CUT);
+  var labour=LABOUR*hrs;
+  var makePrice=Math.round((material+labour)*MARKUP/50)*50;
+  var lines=[],addTotal=0;
+  PADDONS.forEach(function(k){if(state.add[k]){addTotal+=ADDCAT[k].p;lines.push([ADDCAT[k].n,ADDCAT[k].p]);}});
+  var price=makePrice+addTotal+dv.p;
   var wk=(state.fin==='stain'?3:2);
   var wt=Math.round(PDATA.area*s.am*th.mm*7.85+PDATA.hw);
-  var dimTxt=s.mm+' mm (width)';
-  set('lblFin',f.name);set('lblThick',th.label+' mm');set('lblSize',s.mm+' mm');set('lblAdd',lines.length+' selected');
+  var wmm=s.mm, hmm=Math.round(wmm*(PDATA.hr||0.6)/10)*10;
+  var dimTxt=wmm+' \u00D7 '+hmm+' mm (W\u00D7H)';
+  set('lblFin',f.name);set('lblThick',th.label+' mm');set('lblSize',wmm+' \u00D7 '+hmm+' mm');set('lblDeliv',dv.n);set('lblAdd',lines.length+' selected');
   set('spMat',th.label+' mm '+f.matBase);set('spDim',dimTxt);set('spWt','~'+wt+' kg');set('spFin',f.fin);
   var rows='<div class="summary-row"><span>Design</span><b>'+PDATA.name+'</b></div>'+
     '<div class="summary-row"><span>Steel</span><b>'+f.name+'</b></div>'+
     '<div class="summary-row"><span>Thickness</span><b>'+th.label+' mm</b></div>'+
-    '<div class="summary-row"><span>Size</span><b>'+s.mm+' mm</b></div>';
+    '<div class="summary-row"><span>Size (W\u00D7H)</span><b>'+wmm+' \u00D7 '+hmm+' mm</b></div>'+
+    '<div class="summary-row"><span>Made to order</span><b>'+money(makePrice)+'</b></div>';
   lines.forEach(function(l){rows+='<div class="summary-row"><span>'+l[0]+'</span><b>+'+money(l[1])+'</b></div>';});
+  rows+='<div class="summary-row"><span>Delivery ('+dv.n+')</span><b>'+(dv.p?'+'+money(dv.p):'Free')+'</b></div>';
   document.getElementById('sumList').innerHTML=rows;
-  document.getElementById('sumTotal').innerHTML='<span class="pl">Total incl. VAT</span><span class="pv">'+money(price)+'</span>';
+  document.getElementById('sumTotal').innerHTML='<span class="pl">Estimated total</span><span class="pv">'+money(price)+'</span>';
   set('sumLead',wk+'\u2013'+(wk+1)+' wk build');
-  window.__order={price:price,wt:wt,dim:dimTxt,f:f,th:th,s:s,lines:lines,wk:wk};
+  window.__order={price:price,makePrice:makePrice,wt:wt,wmm:wmm,hmm:hmm,f:f,th:th,s:s,dv:dv,lines:lines,wk:wk};
 }
 
 function wireSingle(id,key){document.getElementById(id).addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;var els=this.querySelectorAll('.opt');for(var i=0;i<els.length;i++)els[i].classList.remove('sel');o.classList.add('sel');state[key]=o.dataset[key];render();});}
-wireSingle('finOpts','fin');wireSingle('thickOpts','thick');wireSingle('sizeOpts','size');
+wireSingle('finOpts','fin');wireSingle('thickOpts','thick');wireSingle('sizeOpts','size');wireSingle('delivOpts','deliv');
 document.getElementById('addOpts').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;var k=o.dataset.add;state.add[k]=!state.add[k];o.classList.toggle('sel',state.add[k]);render();});
 
 function val(id){return (document.getElementById(id).value||'').trim();}
-document.getElementById('placeBtn').addEventListener('click',function(){
-  var fields=['name','email','phone','town'],okAll=true;
-  fields.forEach(function(id){var el=document.getElementById(id),v=(el.value||'').trim(),bad=!v||(id==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));el.classList.toggle('err',bad);if(bad)okAll=false;});
-  var errBox=document.getElementById('formErr');
-  if(!okAll){errBox.style.display='block';return;}
-  errBox.style.display='none';
+var CFG=window.VS_CONFIG||{};
+function orderText(){
   var o=window.__order;
   var addStr=o.lines.length?o.lines.map(function(l){return l[0]+' ('+money(l[1])+')';}).join(', '):'none';
-  var subj='ORDER: '+PDATA.name+' \u2014 '+o.f.name+' '+o.th.label+'mm, '+o.s.mm+'mm';
-  var body='NEW ORDER REQUEST\n\n'+
-    'PRODUCT:    '+PDATA.name+'\n'+
-    'STEEL:      '+o.f.name+'\n'+
-    'THICKNESS:  '+o.th.label+' mm\n'+
-    'SIZE:       '+o.s.mm+' mm (width)\n'+
-    'ADD-ONS:    '+addStr+'\n'+
-    'WEIGHT:     ~'+o.wt+' kg\n'+
-    'FUEL:       wood & charcoal (no gas)\n'+
-    'PRICE:      '+money(o.price)+' incl. VAT\n'+
-    'LEAD TIME:  '+o.wk+'\u2013'+(o.wk+1)+' weeks\n\n'+
+  return 'NEW ORDER REQUEST\n\n'+
+    'PRODUCT:   '+PDATA.name+'\n'+
+    'STEEL:     '+o.f.name+'\n'+
+    'THICKNESS: '+o.th.label+' mm\n'+
+    'SIZE:      '+o.wmm+' mm (W) \u00D7 '+o.hmm+' mm (H)\n'+
+    'ADD-ONS:   '+addStr+'\n'+
+    'DELIVERY:  '+o.dv.n+' ('+(o.dv.p?money(o.dv.p):'collect / free')+')\n'+
+    'WEIGHT:    ~'+o.wt+' kg\n'+
+    'FUEL:      wood & charcoal (no gas)\n'+
+    'PRICE:     '+money(o.price)+' incl. VAT\n'+
+    'LEAD TIME: '+o.wk+'\u2013'+(o.wk+1)+' weeks\n\n'+
     'CUSTOMER\n'+
     '  Name:  '+val('name')+'\n'+
     '  Email: '+val('email')+'\n'+
     '  Phone: '+val('phone')+'\n'+
-    '  Delivery town/suburb: '+val('town')+'\n'+
+    '  Town:  '+val('town')+'\n'+
     '  Notes: '+(val('notes')||'-')+'\n';
-  var href='mailto:shop@vertexsteel.co.za?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+}
+function orderSubj(){var o=window.__order;return 'ORDER: '+PDATA.name+' \u2014 '+o.f.name+' '+o.th.label+'mm, '+o.s.mm+'mm';}
+function validate(req){
+  var ok=true;
+  req.forEach(function(id){var el=document.getElementById(id),v=(el.value||'').trim(),bad=!v||(id==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));el.classList.toggle('err',bad);if(bad)ok=false;});
+  document.getElementById('formErr').style.display=ok?'none':'block';
+  return ok;
+}
+function confirmWith(msg){
   document.getElementById('confName').textContent=(val('name').split(' ')[0]||'there');
+  var cm=document.getElementById('confMsg');if(cm)cm.innerHTML=msg;
   document.getElementById('formWrap').style.display='none';
   document.getElementById('confirm').style.display='block';
-  window.location.href=href;
+}
+function mailFallback(){window.location.href='mailto:shop@vertexsteel.co.za?subject='+encodeURIComponent(orderSubj())+'&body='+encodeURIComponent(orderText());}
+
+/* WhatsApp — fastest, needs only a number in config.js */
+document.getElementById('waBtn').addEventListener('click',function(){
+  if(!validate(['name'])){return;}
+  var num=(CFG.whatsapp||'').replace(/[^0-9]/g,'');
+  if(!num){mailFallback();confirmWith('We\u2019ve opened your email app \u2014 just hit send. (Add your WhatsApp number in config.js to enable WhatsApp ordering.)');return;}
+  window.open('https://wa.me/'+num+'?text='+encodeURIComponent(orderText()),'_blank');
+  confirmWith('We\u2019ve opened WhatsApp with your order \u2014 just hit send and we\u2019ll take it from there.');
+});
+
+/* Email / form-service — direct submit if a Web3Forms key is set, else opens email app */
+document.getElementById('placeBtn').addEventListener('click',function(){
+  if(!validate(['name','email','phone','town'])){return;}
+  if(CFG.web3key){
+    var btn=this,old=btn.textContent;btn.disabled=true;btn.textContent='Sending\u2026';
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({access_key:CFG.web3key,subject:orderSubj(),from_name:val('name'),email:val('email'),phone:val('phone'),message:orderText()})})
+      .then(function(r){return r.json();})
+      .then(function(d){if(d.success){confirmWith('Your order is on its way to the shop \u2014 we\u2019ll confirm within 2 business days.');}else{mailFallback();confirmWith('We\u2019ve opened your email app \u2014 just hit send.');}})
+      .catch(function(){mailFallback();confirmWith('We\u2019ve opened your email app \u2014 just hit send.');})
+      .finally(function(){btn.disabled=false;btn.textContent=old;});
+  } else {
+    mailFallback();
+    confirmWith('We\u2019ve opened your email app \u2014 just hit send. If it didn\u2019t open, mail us at <a href="mailto:shop@vertexsteel.co.za">shop@vertexsteel.co.za</a>.');
+  }
 });
 
 document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navlinks').classList.toggle('open');});
 document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navlinks').classList.remove('open');});});
-(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -8% 0px'});els.forEach(function(el){io.observe(el);});setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);})();
 
 /* image gallery */
 (function(){var main=document.getElementById('mainImg'),thumbs=document.querySelectorAll('.thumb');if(!main||!thumbs.length)return;thumbs.forEach(function(t){t.addEventListener('click',function(){var im=t.querySelector('img');if(im)main.src=im.src;thumbs.forEach(function(x){x.classList.remove('sel');});t.classList.add('sel');});});})();
