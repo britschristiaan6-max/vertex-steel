@@ -275,6 +275,8 @@ img{max-width:100%;height:auto}
 .form .err{border-color:#e0574f}
 .wa{width:100%;justify-content:center;margin-top:20px;padding:14px;background:linear-gradient(180deg,#3ad07f,#22b063);border:1px solid #1c9b56;color:#06281a}
 .wa:hover{filter:brightness(1.06)}
+.thick-note{font-size:13.5px;color:var(--steel);background:rgba(231,113,47,.07);border-left:3px solid var(--ember);padding:11px 14px;border-radius:2px;line-height:1.5}
+.thick-note b{color:var(--ash)}
 .place{width:100%;justify-content:center;margin-top:10px;padding:13px}
 .form-note{font-family:var(--font-mono);font-size:10.5px;color:var(--steel-dim);letter-spacing:.03em;margin-top:12px;text-align:center;line-height:1.5}
 .confirm{padding:44px 26px;text-align:center}
@@ -304,8 +306,8 @@ img{max-width:100%;height:auto}
       <span class="eyebrow">/ Chimenea</span>
       <h1>Flame Cone</h1>
       <p class="hero-sub">A tall tapered cone chimenea that glows from within once lit — shown here in raw steel and with a warm ember glow.</p>
-      <div class="prod-from">From <b>R 4 100</b> · price updates as you configure</div>
-      <ul class="feat"><li>Sheet-cut &amp; welded solid</li><li>Mild or 304 stainless</li><li>1.2 / 2 / 3 mm plate</li><li>Wood &amp; charcoal — never gas</li><li>Made to order in South Africa</li><li>2–4 week build, couriered</li></ul>
+      <div class="prod-from">From <b>R 5 250</b> · price updates as you configure</div>
+      <ul class="feat"><li>Sheet-cut &amp; welded solid</li><li>Mild or 304 stainless</li><li>Heavy 3 mm steel plate</li><li>Wood &amp; charcoal — never gas</li><li>Made to order in South Africa</li><li>2–4 week build, couriered</li></ul>
       <div class="hero-cta"><a href="#order" class="btn">Configure &amp; order ↓</a><a href="index.html#builds" class="btn btn-ghost">Other builds</a></div>
     </div>
     <div class="hero-art"><div class="gallery"><img id="mainImg" src="https://i.ibb.co/8Rtd624/r-1-photo-1-1.webp" alt="Flame Cone by Vertex Steel" loading="eager"><div class="thumbs"><button class="thumb sel" type="button" aria-label="View 1"><img src="https://i.ibb.co/8Rtd624/r-1-photo-1-1.webp" alt="Flame Cone view 1"></button><button class="thumb" type="button" aria-label="View 2"><img src="https://i.ibb.co/7w8sb1M/r-1-photo-6-2.webp" alt="Flame Cone view 2"></button></div></div></div>
@@ -320,16 +322,15 @@ img{max-width:100%;height:auto}
       <div class="order-config">
   <div class="field"><div class="flabel"><span>01 · Steel &amp; finish</span><span class="fval" id="lblFin">Mild Steel</span></div>
     <div class="opts" id="finOpts"><div class="opt sel" data-fin="mild">Mild Steel<small>Standard</small></div><div class="opt" data-fin="stain">Stainless<small>Premium</small></div></div></div>
-  <div class="field"><div class="flabel"><span>02 · Plate thickness</span><span class="fval" id="lblThick">2.0 mm</span></div>
-    <div class="opts" id="thickOpts"><div class="opt" data-thick="t12">1.2<small>mm</small></div><div class="opt sel" data-thick="t2">2.0<small>mm</small></div><div class="opt" data-thick="t3">3.0<small>mm</small></div></div></div>
-  <div class="field"><div class="flabel"><span>03 · Size — width (height follows)</span><span class="fval" id="lblSize">750 × 480 mm</span></div>
+  <div class="field"><div class="flabel"><span>02 · Size — width (height follows)</span><span class="fval" id="lblSize">750 × 480 mm</span></div>
     <div class="opts" id="sizeOpts"><div class="opt" data-size="s">600<small>Small</small></div><div class="opt sel" data-size="m">750<small>Medium</small></div><div class="opt" data-size="l">900<small>Large</small></div></div></div>
-  <div class="field"><div class="flabel"><span>04 · Delivery</span><span class="fval" id="lblDeliv">Gauteng</span></div>
+  <div class="field"><div class="flabel"><span>03 · Delivery</span><span class="fval" id="lblDeliv">Gauteng</span></div>
     <div class="opts" id="delivOpts"><div class="opt sel" data-deliv="gp">Gauteng<small>R 800</small></div><div class="opt" data-deliv="out">Outside GP<small>R 1 200</small></div><div class="opt" data-deliv="collect">Collect<small>Free</small></div></div></div>
-  <div class="field"><div class="flabel"><span>05 · Add-ons</span><span class="fval" id="lblAdd">0 selected</span></div>
+  <div class="field"><div class="flabel"><span>04 · Add-ons</span><span class="fval" id="lblAdd">0 selected</span></div>
     <div class="opts addon" id="addOpts"></div></div>
+  <p class="thick-note">Every build is cut from heavy <b>3&nbsp;mm steel plate</b> — thick enough to take real fire without warping. No flimsy thin gauge.</p>
   <div class="specsheet">
-    <div class="spec"><div class="sk">Material</div><div class="sv" id="spMat">2 mm mild steel</div></div>
+    <div class="spec"><div class="sk">Material</div><div class="sv" id="spMat">3 mm mild steel</div></div>
     <div class="spec"><div class="sk">Dimensions</div><div class="sv" id="spDim">—</div></div>
     <div class="spec"><div class="sk">Weight (est.)</div><div class="sv" id="spWt">—</div></div>
     <div class="spec"><div class="sk">Finish</div><div class="sv" id="spFin">—</div></div>
@@ -412,7 +413,7 @@ function money(n){return 'R\u00A0'+fmt(n);}
 
 var PDATA=window.PDATA,PADDONS=window.PADDONS||[];
 var qs=new URLSearchParams(location.search);
-var state={fin:'mild',thick:'t2',size:'m',deliv:'gp',add:{}};
+var state={fin:'mild',thick:'t3',size:'m',deliv:'gp',add:{}};
 PADDONS.forEach(function(k){state.add[k]=false;});
 if(FIN[qs.get('fin')])state.fin=qs.get('fin');
 if(THICK[qs.get('thick')])state.thick=qs.get('thick');
@@ -423,7 +424,7 @@ document.getElementById('addOpts').innerHTML=PADDONS.map(function(k){
   return '<div class="opt chip" data-add="'+k+'">'+ADDCAT[k].n+'<span class="plus">+'+fmt(ADDCAT[k].p)+'</span></div>';
 }).join('');
 function markSel(id,key){var els=document.querySelectorAll('#'+id+' .opt');for(var i=0;i<els.length;i++){els[i].classList.toggle('sel',els[i].dataset[key]===state[key]);}}
-markSel('finOpts','fin');markSel('thickOpts','thick');markSel('sizeOpts','size');markSel('delivOpts','deliv');
+markSel('finOpts','fin');markSel('sizeOpts','size');markSel('delivOpts','deliv');
 function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
 
 function render(){
@@ -456,7 +457,7 @@ function render(){
 }
 
 function wireSingle(id,key){document.getElementById(id).addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;var els=this.querySelectorAll('.opt');for(var i=0;i<els.length;i++)els[i].classList.remove('sel');o.classList.add('sel');state[key]=o.dataset[key];render();});}
-wireSingle('finOpts','fin');wireSingle('thickOpts','thick');wireSingle('sizeOpts','size');wireSingle('delivOpts','deliv');
+wireSingle('finOpts','fin');wireSingle('sizeOpts','size');wireSingle('delivOpts','deliv');
 document.getElementById('addOpts').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;var k=o.dataset.add;state.add[k]=!state.add[k];o.classList.toggle('sel',state.add[k]);render();});
 
 function val(id){return (document.getElementById(id).value||'').trim();}
